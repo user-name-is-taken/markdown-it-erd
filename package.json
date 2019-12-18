@@ -14,12 +14,16 @@
     "markdown-it",
     "markdown",
     "markdown-it-plugin",
-    "erd"
+    "erd",
+    "er"
   ],
   "author": "Michael Lundquist",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/user-name-is-taken/markdown-it-erd/issues"
   },
-  "homepage": "https://github.com/user-name-is-taken/markdown-it-erd#readme"
+  "homepage": "https://github.com/user-name-is-taken/markdown-it-erd#readme",
+  "dependencies": {
+    "erd": "^0.0.8"
+  }
 }

@@ -17,8 +17,8 @@
 
 - [writing npm packages](https://auth0.com/blog/developing-npm-packages/)
 
-- token: 8bcbf1e2-4b09-447f-9a8b-8d1f1a52db15
 
 - use `npm install <pkg> --save` afterwards to install a package and save it as a dependency in the package.json file.
 - See `npm help json` for definitive documentation on these fields
 and exactly what they do.
+- [npm docs](https://mail.google.com/mail/u/0/#inbox/FMfcgxwGCQWtCljPLPbHsDjZFvKfHTlf)

@@ -1,0 +1,25 @@
+{
+  "name": "markdown-it-erd",
+  "version": "1.0.0",
+  "description": "A markdown-it parser for the .er files",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user-name-is-taken/markdown-it-erd.git"
+  },
+  "keywords": [
+    "markdown-it",
+    "markdown",
+    "markdown-it-plugin",
+    "erd"
+  ],
+  "author": "Michael Lundquist",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/user-name-is-taken/markdown-it-erd/issues"
+  },
+  "homepage": "https://github.com/user-name-is-taken/markdown-it-erd#readme"
+}

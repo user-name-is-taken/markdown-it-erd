@@ -2,7 +2,7 @@
   "name": "markdown-it-erd",
   "version": "1.0.0",
   "description": "A markdown-it parser for the .er files",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "node test/index.js"
   },
@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/user-name-is-taken/markdown-it-erd.git"
   },
+  "engines": {
+		"vscode": "^1.31.0"
+	},
   "keywords": [
     "markdown-it",
     "markdown",

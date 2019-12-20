@@ -1,27 +1,107 @@
-//run this with `npm test`
+// //run this with `npm test`
 
-let testMD = `
-# Markdown-it plugin and vscode markdown preview extension
+// let erd = require('erd')
 
-- I want to write a [npm markdown-it plugin](https://www.npmjs.com/search?q=keywords%3Amarkdown-it-plugin)
+// let testMD = `
 
-\`\`\`er
-title {label: "Entity-Relationship Diagram Example", size: "20"}
+// `;
 
-[Person] {bgcolor: "#d0e0d0"}
-*name {label: "full name, not null"}
-height
-weight
-+birth_location_id
+// console.log(testMD);
 
-[Location] {bgcolor: "#ececfc"}
-*id
-city
-state
-country {label: "varchar, not null"}
+// erd({modelsText: testMD, outputType: "png"});
 
-Person *--1 Location {label: "has"}
-\`\`\`
-`;
+const erd = require('erd')
 
-console.log(testMD);
+//TITLE NOT SUPPORTED
+erd({
+  modelsText: `
+[Team] {bgcolor: "#d0e0d0"}
+*_id [ ObjectId ]
++name [ String , not null ]
+description [ String ]
+logo [ String ]
+createdBy [ ObjectId , not null ]
+members [ Array<ObjectId> ]
+
+[User] {bgcolor: "#d0e0d0"}
+*_id [ ObjectId ]
+ssoId [ Number , not null ]
+avatar [ String ]
+username [ String , not null ]
+role [ ObjectId ]
+email [ String ]
+teams [ ObjectId ]
+
+# Relationships
+Team *--* User
+`})
+
+// # Entities
+// [Action] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// struct [ ObjectId ]
+// type [ String ]
+// label [ String , not null ]
+// name [ String , not null ]
+// description [ String , not null ]
+// behavior [ String , not null ]
+// content [ String ]
+// successMessage [ String ]
+// successPage [ ObjectId ]
+// icon [ String ]
+
+// [exception] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+// type [ ObjectId ]
+
+// [namespace] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// serviceName [ String , not null ]
+
+// [Struct] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+// fields [ ObjectId ]
+
+// [thrift] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+
+// [typedef] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+// type [ String , not null ]
+
+// [Layout] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+// title [ String , not null ]
+// type [ String , not null ]
+// fields [ ObjectId ]
+// struct [ ObjectId ]
+// api [ String ]
+// actions [ ObjectId ]
+
+// [Menu] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+// type [ String , not null ]
+// page [ ObjectId ]
+// content [ String , not null ]
+// project [ ObjectId ]
+
+// [Page] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// title [ String ]
+// layouts [ ObjectId ]
+// params [ ObjectId ]
+// queryString [ String ]
+
+// [Project] {bgcolor: "#d0e0d0"}
+// *_id [ ObjectId ]
+// name [ String , not null ]
+// description [ String ]
+// logo [ String ]
+// collaborators [ Array<ObjectId> ]
+// teams [ Array<ObjectId> ]

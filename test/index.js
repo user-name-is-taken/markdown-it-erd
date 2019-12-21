@@ -1,21 +1,79 @@
-// //run this with `npm test`
-
-// let erd = require('erd')
-
-// let testMD = `
-
-// `;
-
-// console.log(testMD);
-
-// erd({modelsText: testMD, outputType: "png"});
-
 const erd = require('erd')
 
 //TITLE NOT SUPPORTED
 erd({
   modelsText: `
-[Team] {bgcolor: "#d0e0d0"}
+  # Entities
+  [Action] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  struct [ ObjectId ]
+  type [ String ]
+  label [ String , not null ]
+  name [ String , not null ]
+  description [ String , not null ]
+  behavior [ String , not null ]
+  content [ String ]
+  successMessage [ String ]
+  successPage [ ObjectId ]
+  icon [ String ]
+  
+  [exception] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  type [ ObjectId ]
+  
+  [namespace] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  serviceName [ String , not null ]
+  
+  [Struct] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  fields [ ObjectId ]
+  
+  [thrift] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  
+  [typedef] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  type [ String , not null ]
+  
+  [Layout] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  title [ String , not null ]
+  type [ String , not null ]
+  fields [ ObjectId ]
+  struct [ ObjectId ]
+  api [ String ]
+  actions [ ObjectId ]
+  
+  [Menu] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  type [ String , not null ]
+  page [ ObjectId ]
+  content [ String , not null ]
+  project [ ObjectId ]
+  
+  [Page] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  title [ String ]
+  layouts [ ObjectId ]
+  params [ ObjectId ]
+  queryString [ String ]
+  
+  [Project] {bgcolor: "#d0e0d0"}
+  *_id [ ObjectId ]
+  name [ String , not null ]
+  description [ String ]
+  logo [ String ]
+  collaborators [ Array<ObjectId> ]
+  teams [ Array<ObjectId> ]
+
+  [Team] {bgcolor: "#d0e0d0"}
 *_id [ ObjectId ]
 +name [ String , not null ]
 description [ String ]
@@ -33,75 +91,24 @@ email [ String ]
 teams [ ObjectId ]
 
 # Relationships
+Action *--* Struct
+Action *--* Page
+Exception *--* Exception
+Layout *--* Struct
+Layout *--* Action
+Menu *--* Page
+Menu *--* Project
+Page *--* Layout
 Team *--* User
-`})
+User *--* Team
+`, outputType: "pdf"})
 
-// # Entities
-// [Action] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// struct [ ObjectId ]
-// type [ String ]
-// label [ String , not null ]
-// name [ String , not null ]
-// description [ String , not null ]
-// behavior [ String , not null ]
-// content [ String ]
-// successMessage [ String ]
-// successPage [ ObjectId ]
-// icon [ String ]
-
-// [exception] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-// type [ ObjectId ]
-
-// [namespace] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// serviceName [ String , not null ]
-
-// [Struct] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-// fields [ ObjectId ]
-
-// [thrift] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-
-// [typedef] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-// type [ String , not null ]
-
-// [Layout] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-// title [ String , not null ]
-// type [ String , not null ]
-// fields [ ObjectId ]
-// struct [ ObjectId ]
-// api [ String ]
-// actions [ ObjectId ]
-
-// [Menu] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-// type [ String , not null ]
-// page [ ObjectId ]
-// content [ String , not null ]
-// project [ ObjectId ]
-
-// [Page] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// title [ String ]
-// layouts [ ObjectId ]
-// params [ ObjectId ]
-// queryString [ String ]
-
-// [Project] {bgcolor: "#d0e0d0"}
-// *_id [ ObjectId ]
-// name [ String , not null ]
-// description [ String ]
-// logo [ String ]
-// collaborators [ Array<ObjectId> ]
-// teams [ Array<ObjectId> ]
+const pdf2html = require('pdf2html')
+ 
+pdf2html.html('erd.pdf', (err, html) => {
+    if (err) {
+        console.error('Conversion error: ' + err)
+    } else {
+        console.log(html)
+    }
+})

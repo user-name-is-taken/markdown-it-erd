@@ -101,14 +101,4 @@ Menu *--* Project
 Page *--* Layout
 Team *--* User
 User *--* Team
-`, outputType: "pdf"})
-
-const pdf2html = require('pdf2html')
- 
-pdf2html.html('erd.pdf', (err, html) => {
-    if (err) {
-        console.error('Conversion error: ' + err)
-    } else {
-        console.log(html)
-    }
-})
+`, outputType: "html"})

@@ -109,3 +109,7 @@ dist
 .vscode-test
 
 private/*
+erd.pdf
+erd.png
+package-lock.json
+npm-debug.log

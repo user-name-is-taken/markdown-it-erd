@@ -26,7 +26,16 @@
 and exactly what they do.
 - [npm docs](https://mail.google.com/mail/u/0/#inbox/FMfcgxwGCQWtCljPLPbHsDjZFvKfHTlf)
 - [vscode samples](https://github.com/microsoft/vscode-extension-samples)
+- [css settings](https://code.visualstudio.com/Docs/languages/markdown)
+  - You can probably set this in the app???
 
 ## Bash stuff
 
 - [tmlanguage.json](https://github.com/Microsoft/vscode/blob/master/extensions/shellscript/syntaxes/shell-unix-bash.tmLanguage.json)
+
+## ranodm
+
+- https://stackoverflow.com/questions/27174946/how-to-use-css-in-markdown
+- https://code.visualstudio.com/Docs/languages/markdown
+- https://code.visualstudio.com/docs/getstarted/settings
+- https://vscode.readthedocs.io/en/latest/getstarted/settings/

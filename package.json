@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/user-name-is-taken/markdown-it-erd#readme",
   "dependencies": {
-    "erd": "^0.0.8",
+    "erd": "^0.0.9",
     "markdown-it": "^10.0.0"
   }
 }

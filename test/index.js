@@ -103,7 +103,19 @@ Team *--* User
 User *--* Team
 `;
 
-//TITLE NOT SUPPORTED
-erd({ modelsText: erdCode, outputType: "html"})
+/**
+ * This function converts the erd syntax to svg of that erd
+ * 
+ * @param {A string that contains an ERD in the erd format} erdCode 
+ * @returns The svg
+ */
+function erdToHTML( erdCode ){
+    erd({ modelsText: erdCode, outputType: "html"});
+    return fs.readFileSync(path.join(__dirname, "../erd.html"), { encoding: 'utf8' });
+}
 
-console.log(fs.readFileSync(path.join(__dirname, "../erd.html"), { encoding: 'utf8' })); // zzzz....
+//TITLE NOT SUPPORTED
+//reading: https://stackoverflow.com/questions/18386361/read-a-file-in-node-js#19722356
+
+console.log( erdToHTML( erdCode ) ); // zzzz....
+

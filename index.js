@@ -1,15 +1,16 @@
 import erd from 'erd'
+var MarkdownIt = require('markdown-it'),
+md = new MarkdownIt();
 
-let erd = require('erd')
-
-const erdPng = (code) => {
-    try{
-        erd( {modelText:code, outputType:'png'} );
-        return 0;
-    }catch ({ str, hash }) {
-        //return `<pre>${str}</pre>`
-        return 1;
-    }
+/**
+ * This function converts the erd syntax to svg of that erd
+ * 
+ * @param {A string that contains an ERD in the erd format} erdCode 
+ * @returns The svg
+ */
+function erdToHTML( erdCode ){
+    erd({ modelsText: erdCode, outputType: "html"});
+    return fs.readFileSync(path.join(__dirname, "../erd.html"), { encoding: 'utf8' });
 }
 
 /**
